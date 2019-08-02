@@ -36,6 +36,9 @@ tags_manager.add("Tag")
 ### Removing tags:
 You can choose to remove only one tag or all the tags.
 To remove only one tag all you need to do is call the *remove(tag)* method
+
+**Note:** The tags can be removed y default by clicking the times icon in the tag. Check the settings section to learn how to disable the icon.
+
 ````
 tags_manager.remove("This is the tag's text")
 tags_manager.remove("Tag")
@@ -44,3 +47,10 @@ To remove all tags call the .wipeTags() method
 ````
 tags_manager.wipeTags()
 ````
+ 
+### Settings:
+
+| Name      | Default value | Description          | Optional Example |
+| ------------- |:-------------:  | -----:|---:|
+| extraTagClass | `Empty string`  | A class to be added to each tag                          |   `"custom-tag-class"`   |
+| removable     | `true`          | Whether tags can be removed using the times icon &times; |    `false`     |
