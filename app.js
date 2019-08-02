@@ -18,10 +18,10 @@ class TagsManager {
         })
     }
 
-    exists(tag) {
+    exists(tagname) {
         let e = false;
         for (let i = 0; i < this.tags.length; i++) {
-            if (this.tags[i] === tag) {
+            if (this.tags[i].name === tagname) {
                 e = true;
                 break;
             }
@@ -29,38 +29,54 @@ class TagsManager {
         return e;
     }
 
-    add(tag) {
-        console.log("Add");
+    /*
+    * @args tagname string The text of the tag
+    * @args related_data object A key value object that contains information related to the tag
+    * */
+    add(tagname, related_data) {
+        related_data = related_data || {};
+
         if (this.container !== null) {
-            if (!this.exists(tag) && tag.length>0) {
-                const el = $("<div class='tag " + this.extraTagClass + "'>" + tag + " </div>");
+            if (!this.exists(tagname)) {
+                const el = $("<div class='tag " + this.extraTagClass + "'>" + tagname + " </div>");
                 if (this.removable) {
-                    let close_icon = $('<span>&times;</span>');
+                    let close_icon = $(' <span>&times;</span>');
                     el.append(close_icon);
                     close_icon.on("click", () => {
-                        this.remove(tag);
+                        this.remove(tagname);
                     });
                 }
                 this.container.append(el);
-                this.tags.push(tag);
-                this.html[tag] = el;
+                let tag_data = {name: tagname};
+                $.each(related_data, (k, v) => tag_data[k] = v);
+                this.tags.push(tag_data);
+                this.html[tagname] = el;
             }
         }
     }
 
-    remove(tag) {
+    remove(tagname) {
         let that = this;
         if (this.container !== null) {
-            if (this.exists(tag)) {
-                $(this.html[tag]).remove();
-                this.tags = this.tags.filter((e) => {
-                    return e !== tag;
-                });
+            if (this.exists(tagname)) {
+                $(this.html[tagname]).remove();
+                this.tags = this.tags.filter((e) => e.name !== tagname);
             }
         }
     }
-    wipeTags(){
-        if(this.container !== null)
-            $.each(this.tags, (k,v) => this.remove(v));
+
+    wipeTags() {
+        if (this.container !== null) $.each(this.tags, (k, v) => this.remove(v.name));
+    }
+
+    getRelatedData(key) {
+        let related = []; key = key || '';
+        this.tags.forEach((k, v) => {
+            if(key === ''){
+                delete k["name"];
+                related.push(k);
+            }else related.push(k[key]);
+        });
+        return related;
     }
 }
