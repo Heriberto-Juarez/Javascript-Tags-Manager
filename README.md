@@ -1,6 +1,7 @@
 # Javascript-Tags-Manager
 Add and remove tags to the DOM easily
 
+![Captura](https://user-images.githubusercontent.com/20604217/62344951-dc52b980-b4b5-11e9-811c-e9d83276a19e.PNG)
 
 ## Required Files
 * app.js
