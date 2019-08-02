@@ -1,6 +1,6 @@
 {
   "name": "javascript-tags-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add and remove tags easily to the dom",
   "main": "app.js",
   "scripts": {
