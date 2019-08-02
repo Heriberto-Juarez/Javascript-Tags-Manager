@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <link rel="stylesheet" href="tags-manager-styles.css">
+</head>
+<body>
+<div>
+    <label for="tag_name">Tag text: </label>
+    <input type="text" name="tag_name" id="tag_name">
+    <button id="add">Add Tag</button>
+    <button id="remove">Remove Tag</button>
+</div>
+<div class="tags-manager tags"></div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="app.js"></script>
+
+<script>
+$(document).ready(function () {
+    let tag = $("#tag_name"), add = $("#add"), remove = $("#remove");
+
+    let tags_manager = new TagsManager({container: $(".tags-manager")});
+
+    add.on("click", function () {
+        tags_manager.add(tag.val());
+    });
+    remove.on("click", function () {
+        tags_manager.remove(tag.val());
+    });
+});
+</script>
+</body>
+</html>

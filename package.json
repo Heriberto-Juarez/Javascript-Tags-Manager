@@ -1,0 +1,30 @@
+{
+  "name": "javascript-tags-manager",
+  "version": "1.0.0",
+  "description": "Add and remove tags easily to the dom",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "jquery": "^3.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heriberto-Juarez/Javascript-Tags-Manager.git"
+  },
+  "keywords": [
+    "javascript",
+    "tags",
+    "manager"
+  ],
+  "author": "Heriberto-Juarez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Heriberto-Juarez/Javascript-Tags-Manager/issues"
+  },
+  "homepage": "https://github.com/Heriberto-Juarez/Javascript-Tags-Manager#readme"
+}

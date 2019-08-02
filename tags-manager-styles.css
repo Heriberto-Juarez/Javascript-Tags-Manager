@@ -1,0 +1,24 @@
+.tags {
+    display: inline-flex;
+    width: 100%;
+    padding: 0;
+    margin: 1rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tags .tag {
+    padding: 0.2rem;
+    margin: 0;
+
+    background: #333;
+    color: #fff;
+    border: 1px solid #0f6674;
+    text-align: center;
+    margin-right: 0.25rem;
+}
+.tags .tag:hover {
+    background: #fff;
+    border-color: #333;
+    color: #333;
+    cursor: pointer;
+}
